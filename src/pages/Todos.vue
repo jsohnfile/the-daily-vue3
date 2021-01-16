@@ -13,7 +13,7 @@
             <button class="mx-5" @click="remove(index)">x</button>
             </li>
         </ul>
-        <form class="mt-10" @submit.prevent="addHero">
+        <form class="mt-10" @submit.prevent="addTask">
             <input class="border rounded-lg p-1" v-model="newTodo" placeholder="Add a Task"/>
             <button class="border rounded bg-gradient-to-r from-blue-700 to-blue-300 text-sm text-white p-1" type="submit"> Add Task</button>
         </form>
@@ -33,7 +33,7 @@ export default {
     methods:{
         addTask(){
         if(this.newTodo !== "") {
-            this.todos.push({name:this.newTodo})
+            this.todos.push({task:this.newTodo})
             this.newTodo = "";
         }
         },
