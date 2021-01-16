@@ -1,7 +1,7 @@
 export default {
     methods:{
         today() {
-            return new Date().toDateString("long")
+            return new Date().toDateString()
         }
         
     }

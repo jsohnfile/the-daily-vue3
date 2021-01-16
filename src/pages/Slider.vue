@@ -15,6 +15,9 @@ export default {
     },
     mounted(){
         setInterval(() => {
+            if (this.currentSlide == 2){
+                this.currentSlide = 0
+            }
             this.currentSlide++;
         }, 1000)
     }

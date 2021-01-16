@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-wrap w-full ">
-        <h1 class="w-full text-center text-3xl my-4"> Markdown</h1>
+        <h1 class="w-full text-center text-4xl my-10"> Markdown</h1>
         <section class="flex m-auto w-10/12 h-screen border-solid border-4 border-light-black-500">
             <article class="w-1/2">
                 <textarea class="w-full h-full" :value="text" @input="update"></textarea>

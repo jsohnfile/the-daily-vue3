@@ -1,7 +1,7 @@
 <template>
-    <div class="m-auto flex flex-col items-center justify-center h-screen">
+    <div class="m-auto flex flex-col items-center">
         <div class="calendar-subcontainer">
-            <h1 class="text-2xl mb-2 text-center">Calendar</h1>
+            <h1 class="text-4xl my-10 text-center">Calendar</h1>
             <section class="mx-2 flex justify-between">
                 <h2 class="font-bold">{{ currentMonthName }} </h2>
                 <h2 class="font-bold">{{ currentYear }} </h2>
@@ -14,10 +14,10 @@
                 <div class="text-center" style="width: 64px"  v-for="num in daysInMonth()" :key="num" :class="currentDateClass(num)">{{ num }}</div>
             </section>
             <section class="flex justify-between my-4">
-                <button class="px-2 border rounded" @click="prev">Prev</button>
-                <button class="px-2 border rounded" @click="next">Next</button>
+                <button class="px-2 border rounded bg-gray-100" @click="prev">Prev</button>
+                <button class="px-2 border rounded bg-gray-100" @click="next">Next</button>
             </section>
-            <h1 class="text-center my-4 font-bold">Today is {{ today() }}</h1>
+            <h1 class="text-blue-500 font-bold text-center my-4">Today is <span class="italic">{{ today() }}</span></h1>
         </div> 
     </div>
 </template>
@@ -61,7 +61,7 @@ export default {
         currentDateClass(num) {
             const calendarFullDate = new Date(this.currentYear, this.currentMonth, num).toDateString();
             const currentFullDate = new Date().toDateString();
-            return calendarFullDate === currentFullDate ? 'text-red-400 font-bold' : '';
+            return calendarFullDate === currentFullDate ? 'text-red-500 font-bold' : '';
         }
     },
     computed: {

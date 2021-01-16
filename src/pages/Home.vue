@@ -1,8 +1,8 @@
 <template>
-    <div class="m-auto flex flex-col items-center justify-center h-screen">
-        <h1 class=" text-4xl text-center">The Daily Vue</h1>
-        <h1 class=" text-4xl text-center my-4">{{ today() }}</h1>
-        <h1 class=" text-4xl text-center my-4">{{ hour }} : {{ minute }} : {{ second }}  {{ periodSymbol }}</h1>
+    <div class="m-auto flex flex-col items-center">
+        <h1 class=" text-6xl text-center my-10">The Daily Vue</h1>
+        <h1 class=" text-4xl text-center italic my-4">{{ today() }}</h1>
+        <h1 class=" text-3xl text-center my-4">{{ hour }} : {{ minute }} : <span class="text-red-600">{{ second }}</span>  {{ periodSymbol }}</h1>
     </div>
 </template>
 

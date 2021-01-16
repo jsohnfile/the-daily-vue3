@@ -1,7 +1,7 @@
 <template>
     <div class="w-full flex">
         <div class="m-auto flex flex-col items-center  h-screen">
-        <h1 class="text-4xl text-center my-5">To Do List</h1>
+        <h1 class="text-4xl text-center mt-10">To Do List</h1>
         <div class="text-2xl text-center italic my-5">{{ today() }}</div>
         <h2 class="text-2xl text center mb-5"> {{ todosCount }} tasks</h2>
 
@@ -31,7 +31,7 @@ export default {
         },
     },
     methods:{
-        addHero(){
+        addTask(){
         if(this.newTodo !== "") {
             this.todos.push({name:this.newTodo})
             this.newTodo = "";
