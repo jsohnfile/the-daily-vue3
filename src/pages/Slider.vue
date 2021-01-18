@@ -1,8 +1,26 @@
 <template>
     <div class="flex flex-wrap w-full">
-        <div v-if="currentSlide === 0" class="absolute w-full bg-blue-600" style="height:350px;"></div>
-        <div v-if="currentSlide === 1" class="absolute w-full bg-red-600" style="height:350px;"></div>
-        <div v-if="currentSlide === 2" class="absolute w-full bg-green-600" style="height:350px;"></div>
+        <div v-for="(color,index) in sliders" :key="color" class="absolute w-full" >
+            <transition name="fade">
+                <div 
+                    v-if="currentSlide === index" 
+                    class="w-full" 
+                    :class="color" 
+                    style="height:350px;"
+                ></div>
+            </transition> 
+        </div>
+        <div class="absolute w-full" style="height:340px;">
+            <div class="absolute bottom-0 flex w-full justify-center">
+                <div 
+                    v-for="slider in sliders" 
+                    :key="slider" 
+                    class="w-4 h-4 rounded-full mx-2" 
+                    :class="currentSlide == index ? 'bg-black-700':'bg-gray-300'"
+                    @click="makeActive(index)"
+                    ></div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -10,20 +28,41 @@
 export default {
     data(){
         return{
-            currentSlide:0,
+            currentSlide: 0,
+            sliders:['bg-blue-600','bg-red-600','bg-green-600'],
+            interval: "",
+            isTitleShowing: true,
+        }
+    },
+    methods:{
+        makeActive(index){
+            this.currentSlider = index;
         }
     },
     mounted(){
-        setInterval(() => {
-            if (this.currentSlide == 2){
-                this.currentSlide = 0
-            }
-            this.currentSlide++;
-        }, 1000)
+        this.interval = setInterval(() => {
+            this.currentSlide = this.currentSlide === 2 ? 0: this.currentSlide + 1;
+        }, 2000)
+    },
+    beforeUnmount(){
+        clearInterval(this.interval)
     }
 }
 </script>
 
 <style>
+    .fade-enter-active,
+    .fade-leave-active{
+        transition: all 1s ease;
+    }
 
+    .fade-enter-from{
+        opacity: 0;
+        transform: translateX(-100%)
+    }
+
+    .fade-leave-to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
 </style>

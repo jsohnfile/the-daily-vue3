@@ -43,6 +43,7 @@ export default {
             if (ampm > 12 && ampm < 25){
                 return ampm - 12;
             }
+            else return ampm;
         }
     }
 
